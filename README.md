@@ -7,14 +7,14 @@ Să se implementeze un program care decodează o serie de șiruri codificate pri
 Structură și detalii de implementare
 
 Tema este formată din mai multe subpuncte, fiecare subpunct constând în decodarea unui șir codificat printr-o metodă specificată. Subpunctele pot fi rezolvate independent, însă puteți refolosi fragmente din rezolvarea unui subpunct în rezolvarea altor subpuncte acolo unde considerați necesar.
-1. XOR între două șiruri de octeți - 10p
+# 1. XOR între două șiruri de octeți - 10p
 
 Multe metode de codificare folosite în criptografie utilizează operația XOR datorită proprietăților matematice ale acesteia. Una dintre metodele cele mai simple folosite în criptografie constă în realizarea operației XOR între fiecare octet din mesaj cu octetul corespondent din cadrul cheii. În mod uzual, pentru această metodă, cheia are aceiași lungime cu mesajul și este folosită în criptarea unui singur mesaj. Această tehnică poartă denumirea de one time pad.
 
 Pentru acest subpunct, este necesară implementarea unei funcții care primește mesajul criptat și cheia folosită la criptare, ambele în reprezentare binară, și decodează mesajul in-place (mesajul decriptat va suprascrie mesajul criptat).
 
 Hint: (x ⊕ k) ⊕ k = x
-2. Rolling XOR - 10p
+# 2. Rolling XOR - 10p
 
 O altă tehnică folosită în criptografie presupune folosirea rezultatului criptării unui bloc de date în criptarea următorului bloc. Mai exact, se efectuează întâi operația XOR între rezultatul respectiv și blocul ce urmează a fi criptat, după care are loc criptarea propriu-zisă folosind o cheie de criptare. Această tehnică se numește cipher block chaining.
 
@@ -28,12 +28,12 @@ Pentru simplitate, în cadrul acestui subpunct, un bloc de date va fi format din
 Unde cn reprezintă octetul de pe poziția n din rezultatul operației de criptare, iar mn reprezintă octetul de pe poziția n din mesajul inițial.
 
 Pentru acest subpunct, se cere implementarea unei funcții care primește un mesaj criptat prin algoritmul descris mai sus și face decodarea in-place (mesajul decriptat va suprascrie mesajul criptat) a acestuia.
-3. XOR între două șiruri reprezentate prin caractere hexazecimale - 10p
+# 3. XOR între două șiruri reprezentate prin caractere hexazecimale - 10p
 
 Acest subpunct presupune realizarea unei operații similare subpunctului 1. Diferența constă în modul de reprezentare a datelor. Atât mesajul criptat cât și cheia care a fost folosită la criptate vor fi reprezentate prin caractere hexazecimale, fiind necesară conversia datelor în formă binară.
 
 Spre exemplu, șirul “deadbeef” va fi convertit în șirul format din octeții 0xde, 0xad, 0xbe, 0xef.
-4. Decodificarea unui șir în reprezentare base32 - 20p
+# 4. Decodificarea unui șir în reprezentare base32 - 20p
 
 base32, la fel ca mai cunoscutul base64, este o metodă de codificare de tip binary to text, însemnând că transformă un sir de date binare într-unul care conține doar caractere tipăribile. Utilitatea acestei codificări nu este neapărat legată de domeniul criptografiei, ci de o gamă mai largă de domenii în care reprezentarea sub formă de caractere ASCII a datelor binare este necesară.
 
@@ -63,7 +63,7 @@ Barele ‘|’ delimitează octeții din datele de intrare, iar parantezele angu
 În cazul în care dimensiunea datelor de intrare nu este multiplu de 5, se va realiza padding cu caractere ‘=’ după o regulă prestabilită (a se vedea https://tools.ietf.org/html/rfc3548#page-7).
 
 Pentru acest subpunct, se cere implementarea unei funcții care realizează decodificarea unui șir codificat base32.
-5. Bruteforce pe XOR cu cheie de un octet - 10p
+# 5. Bruteforce pe XOR cu cheie de un octet - 10p
 
 În mod uzual în criptografie, dimensiunea cheii de criptare va fi mai mică decât a datelor de intrare. Există mai multe mecanisme care permit folosirea unei chei mai scurte decât mesajul pentru a realiza criptarea. Cel mai simplu dintre acestea reprezintă construirea unei noi chei prin repetarea cheii actuale până se ajunge la dimensiunea necesară. Vulnerabilitatea acestei abordări constă în faptul că este suficientă pentru un potențial atacator obținerea unui substring (din mesajul decriptat) de lungime mai mare sau egală decât cheia intială pentru a putea determina cheia prin brute force.
 
@@ -72,7 +72,7 @@ Pentru a exemplifica, vom folosi o cheie de un octet din care vom obține prin r
 Pentru acest subpunct, funcția care trebuie implementată va primi un mesajul criptat și trebuie să returneze cheia folosită în criptarea mesajului, precum și mesajul decriptat in-place.
 
 Hint: mesajul decriptat este în limba engleză și conține ”force”.
-6. Decriptarea unui cifru de substituție - 20p
+# 6. Decriptarea unui cifru de substituție - 20p
 
 Cifrul de substituție este o metodă de criptare bazată pe substituția caracterelor din alfabetul în care este scris mesajul cu caractere din alt alfabet. În mod frecvent, alfabetul cu care se înlocuiește conține aceleași caractere ca cel sursă, dar în altă ordine. Spre exemplu, alfabetul sursă poate fi cel al limbii engleze, “abcdefghijklmnopqrstuvwxyz”, iar cel destinație “qwertyuiopasdfghjklzxcvbnm”. În acest caz, toate aparițiile caracterului ‘a’ din mesaj vor fi înlocuite cu ‘q’, ‘b’ cu ‘w’ ș.a.m.d.
 
