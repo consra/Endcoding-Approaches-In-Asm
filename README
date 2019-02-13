@@ -1,0 +1,32 @@
+===============================================================================
+
+Nume si prenume:      Raducanu Constantin................
+Grupa:                323CC..............................
+Tema:                 Tema 2, IOCLA......................
+
+===============================================================================
+
+Task 1
+	Pentru acest task am determinat lungimea sirurilor cu strlen-ul scris de mine (intoarce lungimea sirului cu tot
+cu terminatorul de sir) si le-am parcurs pe amandoua simultan (aveau aceeasi lungime),salvand  octetii curenti in doi registri de 8 biti si am facut xor intre ei.Am rescris apoi primul sir primit ca parametru.
+
+Task 2
+	Pentru acest task am observat din exemplu de pe site ca daca  (c2 = m2 xor c1) si facand xor la stanga in ambele 
+parti cu c1 adica (c2 xor c1 = m2 xor c1 xor c1) obtin (c2 xor c1 = m2) chiar mesajul.Deci incepand cu al doilea octet al stringului am facut xor dintre aceste si octetul trecut obtinand mesajul.
+
+Task 3
+	La acest task am tranformat 2 octecti intr-unul singur si l-am salvat in sirul pe care-l prelucram.Lungimea sirului la final era de doua ori mai mica decat lungimea sa intiala asa ca am suprascris ultimul octet dupa am terminat 
+de prelucrat sirul ,aceelasi lucru l-am facut si pentru al doilea sir , iar la sfarsit am apelat functia de la exercitiul 1.
+
+Task 4
+	Pentru acest task am ales calea muncitoreasca, adica sa transform 8 octeti in cei 5 octeti cu siftari pe biti si
+sa repet acest lucru pana ajung la sfarsit sirului pentru ca dupa fiecare 8 octeti pozitia de unde luam biti necesari se reseta. In prima faza am folosit pentru conversia octetilor conform tabelei un macro care face conversia in functie de tipul octetului ,scadea din el un anumit numar ( 0x18 pt cifra si 0x41 pentru litera).Iar apoi am construit  fiecare dintre 5 octeti pe rand si am specificat si in partea dreapta si ce operatie de siftare am facut(0 reprezinta biti care nu ne trebuie ,iar  'a' reprezinta biti de care avem nevoie pentru a constructia sirului decodificat).
+
+Task 5
+	La acest task am ales sa folosesc functia strstr din standard c si sa salvez cunvantul 'force' pe stiva. Am retinut intr-un registru de un octet (care incepe 0x00 si se opreste la 0xFF) cheia.In prima faza iteram prin sir si facem xor cu fiecare octet al stringului si cu cheia din registru, apoi apelam functia strstr si vedeam daca daca functia intoarce ceva diferit de 0, daca rezultatul era diferit de 0 inseamna ca am gasit cheia si ma opream altfel faceam reverse_xor_strings pentru a reveni la sirul intial si incrementat cheia pentru o noua incercare.
+
+Task 6 
+	La acest task m-am folosit de un program scris in c++(map, STL) pentru a determina frecventa caracterelor din mesajul dat,apoi am cautat pe internet un tabel cu cele mai frecvente caractere din limba engleza.Totusi cel mai frecvent caracter dintr-un text(ceva mai mare) in majoritatea limbilor este  spatiul, asa ca am decodat cel mai frecvent caracter cu spatiu (in cazul nostru 'c'),iar apoi am asociat  caracterele din text cu caracterele din limba engleza(descrescator dupa frecventa, cel mai frecvent caracter din text cu cel mai frecvent caracter din limba engleza), dupa mai multe(destul de multe) incercari de potrivire a caracterelor am reusit sa ajung la tabela finala.
+
+Nu stiu daca este necesar dar las linkul pentru codul folosit la 6 pentru frecventa: https://pastebin.com/P7d7QP80
+
